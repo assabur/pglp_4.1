@@ -6,10 +6,17 @@ public class Composite_Personnel implements Interface_Personnel {
 	private int id;
 	private ArrayList<Interface_Personnel> personnel=new ArrayList<Interface_Personnel>();
 	public void affiche()
-	{
-		
-		
+	{	
+		for (Interface_Personnel interfaceP: personnel )
+		{
+			interfaceP.affiche();
+		}
 	}
-
+	
+	public void add (Interface_Personnel ip)
+	{
+		personnel.add(ip);
+	}
+	
 }
 
