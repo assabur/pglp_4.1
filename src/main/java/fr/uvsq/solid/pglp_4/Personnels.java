@@ -12,11 +12,12 @@ public final class  Personnels implements Interface_Personnel  {
 		   id=builder.id;
 		   nom=builder.nom;
 		   prenom=builder.prenom;	 
-		   date_naiss=builder.date_naiss;
+		   
 		  
 		  //parametre optionels
 		    telephone =builder.telephone;	  
 		    fonction=builder.fonction;
+		    date_naiss=builder.date_naiss;
 	}
 		 private int id;
 		 private String nom;
@@ -35,17 +36,18 @@ public final class  Personnels implements Interface_Personnel  {
 	  private int id;
 	  private String nom;
 	  private String prenom;	 
-	  private LocalDateTime date_naiss;
+	 
 	  
 	  //parametre optionels
+	  private LocalDateTime date_naiss;
 	  private ArrayList<Integer> telephone =new ArrayList<Integer>();	  
 	  private String fonction;
-	  public Builder(int id,String nom,String prenom,LocalDateTime date_naiss)
+	  public Builder(int id,String nom,String prenom)
 	  {
 		  this.id=id;
 		  this.nom=nom;
 		  this.prenom=prenom;
-		  this.date_naiss=date_naiss;
+		  
 	  }
 	  public Builder fonction_change(String new_fonction)
 	  {

@@ -16,7 +16,7 @@ public class AllTests {
 	private Composite_Personnel composite1;
 	private Composite_Personnel composite3;
 	private Composite_Personnel composite4;
-	private Builder personnel2;
+	private Personnels personnel2;
 	private Personnels personnel6;
 	private Personnels personnel7;
 	private Personnels personnel5;
@@ -26,12 +26,27 @@ public class AllTests {
 	public void setup()
 	{
 		//creer 4 personnels et 3 composites ensuite les rajouter
-		personnel2 =new Personnels.Builder(1,"Nikiema","Daouda",temp.withDayOfMonth(4).withMonth(4).withYear(1994));
+		personnel2 =new Personnels(0,"Nikiema","Daouda");
+		personnel6 =new Personnels(1,"Nikiema","Daouda");
+		personnel7 =new Personnels(2,"Nikiema","Daouda");
+		personnel5 =new Personnels(3,"Nikiema","Daouda");
 	}
 	@Test
 	public void pglp41Test()
 	{
 		
 	}
+	
+	@Test
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

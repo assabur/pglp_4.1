@@ -1,26 +1,51 @@
 package fr.uvsq.solid.pglp_4;
 
-public class Affichage_groupe implements Iterator  {
+import java.util.ArrayList;
 
-	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+public class Affichage_groupe   {
+	
+	private ArrayList<Interface_Personnel> tab=new ArrayList<Interface_Personnel>();
+	
+	public void Affiche_groupe (Interface_Personnel root)
+	{
+		this.tab.add(root);
+	
 	}
 
-	public Interface_Personnel Next() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	private class GroupeIterator implements Iterator
 	{
+		public  GroupeIterator ()
+		{
+			int index =0;
+			while (index < tab.size())
+			{	
+				if	(tab.get(index) instanceof Composite_Personnel)
+				//((Composite_Personnel)tab.get(index)).personnel.get(index);
+				{	
+				 for (Interface_Personnel personne : ((Composite_Personnel)tab.get(index)).personnel )
+				{ 		      
+			          tab.add(personne);		
+			    }
+				
+				
+				//if(tab.get(index) instanceof Personnels)
+				}
+				
+				
+			}
+		}
+		int index=0;
 
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
+			if (index < tab.size())
+			 return true;
 			return false;
 		}
 
 		public Interface_Personnel Next() {
-			// TODO Auto-generated method stub
+			
+			if (hasNext())
+			return tab.get(index +1);
 			return null;
 		}
 		
