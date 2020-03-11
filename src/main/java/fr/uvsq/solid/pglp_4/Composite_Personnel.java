@@ -18,5 +18,9 @@ public class Composite_Personnel implements Interface_Personnel {
 		personnel.add(ip);
 	}
 	
+	public void remove(Interface_Personnel ip)
+	{
+		personnel.remove(ip);
+	}
 }
 
