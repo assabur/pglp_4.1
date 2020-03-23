@@ -1,10 +1,16 @@
 package fr.uvsq.solid.pglp_4;
 
 import java.time.LocalDateTime;
+/*
+ * definition de la classe personnel
+ */
 import java.util.ArrayList;
 
 public final class  Personnels implements Interface_Personnel  {
 	
+	/*
+	 * constructeur
+	 */
 	
 	private Personnels(Builder builder)
 	{
@@ -12,7 +18,6 @@ public final class  Personnels implements Interface_Personnel  {
 		   id=builder.id;
 		   nom=builder.nom;
 		   prenom=builder.prenom;	 
-		   
 		  
 		  //parametre optionels
 		    telephone =builder.telephone;	  
@@ -25,18 +30,27 @@ public final class  Personnels implements Interface_Personnel  {
 		 private String fonction;
 		 private LocalDateTime date_naiss;
 		 private ArrayList<Integer> telephone =new ArrayList<Integer>();
-		 public void affiche()
+	public void affiche()
 	{
-		System.out.println("Id: "+this.id+" Nom: "+this.nom+" Prenom: "+this.prenom);
-		
+		System.out.println("Personnel "+this.id+" :"+" Nom: "+this.nom+" Prenom: "+this.prenom);		
 	}
+	  /*
+	   * redefinissons la methode tostring
+	   */
+	 public String toString()
+	  {	 
+		 String chaine ="je suis le personnel "+this.id;
+		 return chaine;
+	  }
+	/*
+	 * definition du builder
+	 */
   public static class Builder
   {
 	  //parametres requis 
 	  private int id;
 	  private String nom;
 	  private String prenom;	 
-	 
 	  
 	  //parametre optionels
 	  private LocalDateTime date_naiss;
@@ -49,16 +63,22 @@ public final class  Personnels implements Interface_Personnel  {
 		  this.prenom=prenom;
 		  
 	  }
+	  /*
+	   * fonction servant a modifier le parametre optionnel fonction
+	   */
 	  public Builder fonction_change(String new_fonction)
 	  {
 		  fonction=new_fonction;
 		  return this;
 		  
 	  }
+	  /*
+	   * fonction servant a modifier le parametre optionnel numero de telephone
+	   */
 	  public Builder telephone_change(ArrayList<Integer> new_telephone)
 	  {
 		  telephone=new_telephone;
-		  return this;
+		  return this;  
 		  
 	  }
 	  public Personnels build()
@@ -66,8 +86,6 @@ public final class  Personnels implements Interface_Personnel  {
 		  return new Personnels(this);
 		  
 	  }
-	  
+
   }
-  
-	
 }
