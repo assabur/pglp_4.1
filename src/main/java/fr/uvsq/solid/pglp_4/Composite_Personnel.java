@@ -1,7 +1,9 @@
 package fr.uvsq.solid.pglp_4;
 
 import java.util.ArrayList;
-
+/*
+ * classe qui definit un composite de notre hierarchie 
+ */
 public class Composite_Personnel implements Interface_Personnel {
 	private int id;
 	public Composite_Personnel(int id)
@@ -9,6 +11,10 @@ public class Composite_Personnel implements Interface_Personnel {
 		this.id=id;
 	}
 	public ArrayList<Interface_Personnel> personnel=new ArrayList<Interface_Personnel>();
+	
+	/*
+	 * methode qui affiche le personnel
+	 */
 	public void affiche()
 	{	
 		for (Interface_Personnel interfaceP: personnel )
@@ -26,11 +32,17 @@ public class Composite_Personnel implements Interface_Personnel {
 		 String chaine ="je suis le composite "+this.id;
 		 return chaine;
 	 }
+	 
+	 /*
+	  *methode qui ajoute un personnel dans l'hierarchie
+	 */	 
 	public void add (Interface_Personnel ip)
 	{
 		personnel.add(ip);
 	}
-	
+	/*
+	 * methode qui supprime un personelle de l'hierarchie
+	 */
 	public void remove(Interface_Personnel ip)
 	{
 		personnel.remove(ip);

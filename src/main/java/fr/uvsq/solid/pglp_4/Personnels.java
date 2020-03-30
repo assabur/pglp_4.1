@@ -1,17 +1,14 @@
 package fr.uvsq.solid.pglp_4;
-
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 /*
  * definition de la classe personnel
  */
-import java.util.ArrayList;
-
 public final class  Personnels implements Interface_Personnel  {
 	
 	/*
-	 * constructeur
+	 * constructeur prend en entré un builder
 	 */
-	
 	private Personnels(Builder builder)
 	{
 		  //parametres requis 
@@ -24,12 +21,19 @@ public final class  Personnels implements Interface_Personnel  {
 		    fonction=builder.fonction;
 		    date_naiss=builder.date_naiss;
 	}
+
+		/*
+		 * définition des parametres requis de notre builder
+		 */
 		 private int id;
 		 private String nom;
 		 private String prenom;
 		 private String fonction;
 		 private LocalDateTime date_naiss;
 		 private ArrayList<Integer> telephone =new ArrayList<Integer>();
+	/*
+	 * 	methode d'affichage du personnel de l'hierarchie
+	 */
 	public void affiche()
 	{
 		System.out.println("Personnel "+this.id+" :"+" Nom: "+this.nom+" Prenom: "+this.prenom);		
@@ -43,7 +47,7 @@ public final class  Personnels implements Interface_Personnel  {
 		 return chaine;
 	  }
 	/*
-	 * definition du builder
+	 * definition de la classe  builder
 	 */
   public static class Builder
   {
@@ -51,41 +55,43 @@ public final class  Personnels implements Interface_Personnel  {
 	  private int id;
 	  private String nom;
 	  private String prenom;	 
-	  
+  
 	  //parametre optionels
 	  private LocalDateTime date_naiss;
 	  private ArrayList<Integer> telephone =new ArrayList<Integer>();	  
 	  private String fonction;
+	  
+	  /*
+	   * Constructeur du builder
+	   */
 	  public Builder(int id,String nom,String prenom)
 	  {
 		  this.id=id;
 		  this.nom=nom;
-		  this.prenom=prenom;
-		  
+		  this.prenom=prenom;  
 	  }
 	  /*
-	   * fonction servant a modifier le parametre optionnel fonction
+	   * methode servant a modifier le parametre optionnel fonction
 	   */
 	  public Builder fonction_change(String new_fonction)
 	  {
 		  fonction=new_fonction;
-		  return this;
-		  
+		  return this;  
 	  }
 	  /*
-	   * fonction servant a modifier le parametre optionnel numero de telephone
+	   * methode servant a modifier le parametre optionnel numero de telephone
 	   */
 	  public Builder telephone_change(ArrayList<Integer> new_telephone)
 	  {
 		  telephone=new_telephone;
-		  return this;  
-		  
+		  return this;    
 	  }
+	  /*
+	   * methode qui renvoie un nouveau personnel
+	   */
 	  public Personnels build()
 	  {
-		  return new Personnels(this);
-		  
+		  return new Personnels(this);	  
 	  }
-
   }
 }
